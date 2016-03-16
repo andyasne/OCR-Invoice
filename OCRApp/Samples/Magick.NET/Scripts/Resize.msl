@@ -1,0 +1,6 @@
+<msl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <read fileName="C:\NewOCR\OCRApp\OCRApp\Samples\Magick.NET\Files\Snakeware.jpg">
+    <resize percentage="50"/>
+    <write fileName="C:\NewOCR\OCRApp\OCRApp\Samples\Magick.NET\Output\Snakeware.resized.jpg"/>
+  </read>
+</msl>

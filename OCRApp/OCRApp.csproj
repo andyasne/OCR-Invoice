@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{62E237E7-7693-4510-9CD0-A72B0186E914}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OCRApp</RootNamespace>
+    <AssemblyName>OCRApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Imaging.2.2.5\lib\AForge.Imaging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AForge.Math, Version=2.2.5.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Math.2.2.5\lib\AForge.Math.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AWSSDK, Version=1.3.4.1, Culture=neutral, PublicKeyToken=cd2d24cd2bace800, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.1.3.4.1\lib\AWSSDK.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ghostscript.NET, Version=1.2.0.0, Culture=neutral, PublicKeyToken=f85051de34525b59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ghostscript.NET.1.2.0\lib\net40\Ghostscript.NET.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ImageResizer, Version=3.0.9.20805, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageResizer.3.0.9\lib\ImageResizer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Magick.NET-x86, Version=7.0.0.0, Culture=neutral, PublicKeyToken=2004825badfa91ec, processorArchitecture=x86">
+      <HintPath>..\packages\Magick.NET-Q16-x86.7.0.0.0020\lib\net40-client\Magick.NET-x86.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Magick.NET.Core, Version=7.0.0.0, Culture=neutral, PublicKeyToken=2004825badfa91ec, processorArchitecture=MSIL">
+      <HintPath>..\packages\Magick.NET-Q16-x86.7.0.0.0020\lib\net40-client\Magick.NET.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Magick.NET.Wrapper-x86, Version=7.0.0.0, Culture=neutral, PublicKeyToken=2004825badfa91ec, processorArchitecture=x86">
+      <HintPath>..\packages\Magick.NET-Q16-x86.7.0.0.0020\lib\net40-client\Magick.NET.Wrapper-x86.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tesseract, Version=2.4.0.0, Culture=neutral, PublicKeyToken=ebeb3d86bef60cbe, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tesseract.2.4.0.0\lib\net451\Tesseract.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Autotrim\AutotrimPixelShift.cs" />
+    <Compile Include="Autotrim\AutotrimScript.cs" />
+    <Compile Include="Autotrim\WhiteboardEnhancements.cs" />
+    <Compile Include="Autotrim\WhiteboardScript.cs" />
+    <Compile Include="CleanText.cs" />
+    <Compile Include="FormattedConsoleLogger.cs" />
+    <Compile Include="Identify.cs" />
+    <Compile Include="ImagePreProcessing.cs" />
+    <Compile Include="ImageProcessing.cs" />
+    <Compile Include="Models\Invoice.cs" />
+    <Compile Include="Models\Lineitem.cs" />
+    <Compile Include="Models\Row.cs" />
+    <Compile Include="PDFProcessing.cs" />
+    <Compile Include="PerformingOCR.cs" />
+    <Compile Include="PopInvoice.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Samples\Magick.NET\CombiningImages.cs" />
+    <Compile Include="Samples\Magick.NET\CommandLineOptionDefine.cs" />
+    <Compile Include="Samples\Magick.NET\ConvertImage.cs" />
+    <Compile Include="Samples\Magick.NET\ConvertPDF.cs" />
+    <Compile Include="Samples\Magick.NET\DetailedDebugInformation.cs" />
+    <Compile Include="Samples\Magick.NET\ExceptionHandling.cs" />
+    <Compile Include="Samples\Magick.NET\ExifData.cs" />
+    <Compile Include="Samples\Magick.NET\Files\Files.cs" />
+    <Compile Include="Samples\Magick.NET\LosslessCompression.cs" />
+    <Compile Include="Samples\Magick.NET\MagickScript.cs" />
+    <Compile Include="Samples\Magick.NET\ReadImage.cs" />
+    <Compile Include="Samples\Magick.NET\ReadRawImageFromCamera.cs" />
+    <Compile Include="Samples\Magick.NET\ResizeImage.cs" />
+    <Compile Include="Samples\Magick.NET\UsingColors.cs" />
+    <Compile Include="Samples\Magick.NET\Watermark.cs" />
+    <Compile Include="TextCleaner\Deskew.cs" />
+    <Compile Include="TextCleaner\TextCleanerCropOffset.cs" />
+    <Compile Include="TextCleaner\TextCleanerEnhance.cs" />
+    <Compile Include="TextCleaner\TextCleanerLayout.cs" />
+    <Compile Include="TextCleaner\TextCleanerRotation.cs" />
+    <Compile Include="TextCleaner\TextCleanerScript.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Samples\Magick.NET\Files\Snakeware.eps" />
+    <None Include="Samples\Magick.NET\Files\Snakeware.pdf" />
+    <None Include="Samples\Magick.NET\Files\StillLife.cr2" />
+    <None Include="Samples\Magick.NET\Files\YourProfile.icc" />
+    <None Include="Samples\Magick.NET\Scripts\Clone.msl" />
+    <None Include="Samples\Magick.NET\Scripts\Crop.msl" />
+    <None Include="Samples\Magick.NET\Scripts\Resize.msl" />
+    <None Include="Samples\Magick.NET\Scripts\Wave.msl" />
+    <None Include="tessdata\eng.cube.bigrams" />
+    <None Include="tessdata\eng.cube.fold" />
+    <None Include="tessdata\eng.cube.lm" />
+    <None Include="tessdata\eng.cube.nn" />
+    <None Include="tessdata\eng.cube.params" />
+    <None Include="tessdata\eng.cube.size" />
+    <None Include="tessdata\eng.cube.word-freq" />
+    <None Include="tessdata\eng.tesseract_cube.nn" />
+    <None Include="tessdata\eng.traineddata" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Samples\Magick.NET\Files\CorruptImage.jpg" />
+    <Content Include="Samples\Magick.NET\Files\FileWithWarning.jpg" />
+    <Content Include="Samples\Magick.NET\Files\FujiFilmFinePixS1Pro.jpg" />
+    <Content Include="Samples\Magick.NET\Files\InvalidFile.jpg" />
+    <Content Include="Samples\Magick.NET\Files\Snakeware.gif" />
+    <Content Include="Samples\Magick.NET\Files\Snakeware.jpg" />
+    <Content Include="Samples\Magick.NET\Files\Snakeware.png" />
+    <Content Include="Samples\Magick.NET\Output\Readme.txt" />
+    <Content Include="x64\liblept168.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\libtesseract302.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\liblept168.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\libtesseract302.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+PowerShell -NoProfile -ExecutionPolicy Bypass -Command "ls '$(SolutionDir)\packages\GhostScriptSharp.*\Tools\gsdll32.dll' | Sort -Descending | Select -First 1 | cp -Destination '$(TargetDir)'; exit 0"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
